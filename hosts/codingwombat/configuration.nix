@@ -8,33 +8,13 @@
   environment.darwinConfig = inputs.self + /hosts/codingwombat/configuration.nix;
 
   codingwombat.cli.enable = true;
+  codingwombat.kubernetes.enable = true;
+  codingwombat.podman.enable = true;
+  codingwombat.dev.enable = true;
 
   environment.systemPackages =
-          [
-            # nix lsp
-            pkgs.nixd
-            # zsh plugins
-            pkgs.zsh-autosuggestions
-            pkgs.zsh-syntax-highlighting
-
-            # kubernetes
-            pkgs.kubectl
-            pkgs.kubernetes-helm
-            pkgs.k9s
-            pkgs.argocd
-            # podman
-            pkgs.podman
-            pkgs.podman-desktop
-            pkgs.podman-compose
-            # java
-            pkgs.temurin-bin-23
-            # dotnet
-            pkgs.dotnet-sdk_9
-            # Rust
-            pkgs.rustup
-            # helix
-            pkgs.helix
-          ];
+  [
+  ];
 
   security.pam.enableSudoTouchIdAuth = true;
 

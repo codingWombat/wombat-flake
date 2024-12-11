@@ -1,6 +1,6 @@
 { pkgs, lib, config, ... }:
 let
-  inherit (lib) mkOption mkIf types;
+  inherit (lib) mkOption mkIf;
   cfg = config.codingwombat.cli;
 in
 {
@@ -14,6 +14,8 @@ in
 
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
+      zsh-autosuggestions
+      zsh-syntax-highlighting
       btop
       fastfetch
       bottom
