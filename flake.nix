@@ -8,14 +8,18 @@
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs }:
+  outputs = { self, nix-darwin, nixpkgs }
+  @inputs:
+  let
+    modules = [(import ./modules/default.nix)];
+  in
   {
     # Build darwin flake using:
     # $ darwin-rebuild build --flake .#codingwombat
     darwinConfigurations."codingwombat" = nix-darwin.lib.darwinSystem {
       inherit inputs;
       system = "aarch64-darwin";
-      modules = [ ./hosts/codingwombat/configuration.nix ];
+      modules = [ ./hosts/codingwombat/configuration.nix ] ++ modules;
     };
   };
 }

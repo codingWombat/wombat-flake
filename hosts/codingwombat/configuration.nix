@@ -1,12 +1,13 @@
 {
   lib,
-  config,
   pkgs,
   inputs,
   ...
 }:
 {
   environment.darwinConfig = inputs.self + /hosts/codingwombat/configuration.nix;
+
+  codingwombat.cli.enable = true;
 
   environment.systemPackages =
           [
@@ -15,16 +16,7 @@
             # zsh plugins
             pkgs.zsh-autosuggestions
             pkgs.zsh-syntax-highlighting
-            # cli tools
-            pkgs.fastfetch
-            pkgs.bottom
-            pkgs.fzf
-            pkgs.bat
-            pkgs.fd
-            pkgs.zoxide
-            pkgs.cheat
-            pkgs.lsd
-            pkgs.starship
+
             # kubernetes
             pkgs.kubectl
             pkgs.kubernetes-helm
