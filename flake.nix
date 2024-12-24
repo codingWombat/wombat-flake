@@ -28,7 +28,7 @@
       modules = [ ./hosts/codingwombat/configuration.nix ] ++ modules;
     };
 
-    nixosConfiguration."antman" = nixpkgs.lib.nixosSystem {
+    nixosConfigurations."antman" = nixpkgs.lib.nixosSystem {
       inherit inputs;
       inherit publicKeys;
       system = "x86_64-linux";
