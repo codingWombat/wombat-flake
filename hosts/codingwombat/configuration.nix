@@ -12,10 +12,9 @@
   codingwombat.podman.enable = true;
   codingwombat.dev.enable = true;
 
-  environment.systemPackages =
-  [
-    pkgs.vlc-bin
-    pkgs.toot
+  environment.systemPackages = with pkgs; [
+    vlc-bin
+    toot
   ];
 
   security.pam.enableSudoTouchIdAuth = true;
