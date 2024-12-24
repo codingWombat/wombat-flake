@@ -11,7 +11,7 @@
     disko.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nix-darwin, nixpkgs }
+  outputs = { self, nix-darwin, nixpkgs, disko }
   @inputs:
   let
     modules = [(import ./modules/default.nix)];
@@ -34,6 +34,7 @@
       system = "x86_64-linux";
       modules = [ ./hosts/antman/configuration.nix
         ./hosts/antman/disk-config.nix
+        disko.nixosModules.disko
       ];
     };
   };
