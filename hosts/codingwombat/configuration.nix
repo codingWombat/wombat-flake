@@ -15,6 +15,7 @@
   environment.systemPackages =
   [
     pkgs.vlc-bin
+    pkgs.toot
   ];
 
   security.pam.enableSudoTouchIdAuth = true;
