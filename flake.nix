@@ -33,7 +33,8 @@
       modules = [ ./hosts/antman/configuration.nix
         ./hosts/antman/disk-config.nix
         disko.nixosModules.disko
-      ];
+      ] ++ modules;
+      specialArgs = { inherit inputs; inherit publicKeys; };
     };
   };
 }

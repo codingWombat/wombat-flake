@@ -1,11 +1,11 @@
-{ publicKeys, lib, config, ... }:
-with lib;
+{ pkgs, lib, config, publicKeys, ... }:
 let
-  cfg = config.codingwombat.user;
+  inherit (lib) mkOption mkIf;
+  cfg = config.codingwombat.wombatmin;
 in
 {
 
-  options.codingwombat.user = {
+  options.codingwombat.wombatmin = {
     enable = mkOption {
       description = "create wombatmin";
       type = lib.types.bool;
@@ -15,7 +15,7 @@ in
 
   config = mkIf cfg.enable
     {
-      # Set some system wide options
+      #Set some system wide options
       services.openssh = {
         enable = true;
         settings.PasswordAuthentication = false;
@@ -23,6 +23,8 @@ in
       };
 
       users.users.wombatmin = {
+        isNormalUser = true;
+        extraGroups  = [ "wheel" "networkmanager" ];
         openssh.authorizedKeys.keys = publicKeys;
       };
     };
