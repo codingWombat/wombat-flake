@@ -29,8 +29,6 @@
     };
 
     nixosConfigurations."antman" = nixpkgs.lib.nixosSystem {
-      inherit inputs;
-      inherit publicKeys;
       system = "x86_64-linux";
       modules = [ ./hosts/antman/configuration.nix
         ./hosts/antman/disk-config.nix
