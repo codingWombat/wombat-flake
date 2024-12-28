@@ -4,6 +4,5 @@
     ./kubernetes.nix
     ./podman.nix
     ./development.nix
-    ./user.nix
   ];
 }

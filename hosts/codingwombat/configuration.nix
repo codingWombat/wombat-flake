@@ -16,6 +16,7 @@
     vlc-bin
     toot
     openscad
+    nushell
   ];
 
   security.pam.enableSudoTouchIdAuth = true;

@@ -15,6 +15,7 @@
   @inputs:
   let
     modules = [(import ./modules/default.nix)];
+    linuxModules = [(import ./modules/linux.nix)];
     publicKeys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK5hep9vnJDpydFRLwJhBkwEFSWeA7jLrHAS+liNcasc codingwombat@MacBook-Pro.localdomain"
     ];
@@ -29,11 +30,11 @@
     };
 
     nixosConfigurations."antman" = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
+      system = "aarch64-linux";
       modules = [ ./hosts/antman/configuration.nix
         ./hosts/antman/disk-config.nix
         disko.nixosModules.disko
-      ] ++ modules;
+      ] ++ modules ++ linuxModules;
       specialArgs = { inherit inputs; inherit publicKeys; };
     };
   };

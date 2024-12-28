@@ -7,16 +7,22 @@ darwin-rebuild switch --flake github:codingwombat/wombat-falke#codingwombat
 
 ### installing a new linux system with hard drive partioning
 
+#### download disk-config.nix via curl
 ```shell
+curl https://raw.githubusercontent.com/codingWombat/wombat-flake/refs/heads/main/hosts/<hostname>/disk-config.nix -o /tmp/disk-config.nix
+```
 
-# Assuming
-# - your system is x86_64-linux
-FLAKE="github:codingwombat/wombat-falke#<hostname>"
-DISK_DEVICE=<hard-disk-path>
-sudo nix \
---extra-experimental-features 'flakes nix-command' \
-run github:nix-community/disko#disko-install -- \
---flake "$FLAKE" \
---write-efi-boot-entries \
---disk main "$DISK_DEVICE"
+#### execute disko flake to partion harddrive
+```shell
+sudo nix --extra-experimental-features "nix-command flakes" run github:nix-community/disko/latest -- --mode destroy,format,mount /tmp/disk-config.nix
+```
+
+#### generate base nix configuration
+```shell
+nixos-generate-config --no-filesystems --root /mnt
+```
+
+#### install nixos using flakes from github
+```shell
+sudo nixos-install --root /mnt --flake github:codingwombat/wombat-falke#<hostname>
 ```
