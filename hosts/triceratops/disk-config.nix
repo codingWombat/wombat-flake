@@ -28,6 +28,7 @@ in
                 mountpoint = "/boot";
                 mountOptions = [ "umask=0077" ];
               };
+            };
             root = {
               size = "100%";
               content = {
@@ -82,5 +83,4 @@ in
 #        };
 #      };
   };
- };
 }
