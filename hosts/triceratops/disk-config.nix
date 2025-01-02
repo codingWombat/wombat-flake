@@ -1,3 +1,12 @@
+let
+  sshdrawdisk1 = "/dev/vda"; # CHANGE THESE
+  sshdrawdisk2 = "/dev/vdb"; # CHANGE THESE
+
+  ssdrawdisk1 = "/dev/vda"; # CHANGE THESE
+  ssdrawdisk2 = "/dev/vdb"; # CHANGE THESE
+  ssdrawdisk3 = "/dev/vda"; # CHANGE THESE
+  ssdrawdisk4 = "/dev/vdb"; # CHANGE THESE
+in
 {
   disko.devices = {
     disk = {
@@ -7,141 +16,65 @@
         content = {
           type = "gpt";
           partitions = {
-            MBR = {
-              type = "EF02"; # for grub MBR
-              size = "1M";
-            };
             ESP = {
+              priority = 1;
+              name = "ESP";
+              start = "1M";
+              end = "128M";
               type = "EF00";
-              size = "500M";
               content = {
                 type = "filesystem";
                 format = "vfat";
                 mountpoint = "/boot";
+                mountOptions = [ "umask=0077" ];
               };
-            };
             root = {
               size = "100%";
               content = {
-                type = "filesystem";
-                format = "ext4";
+                type = "btrfs";
+                extraArgs = [ "-f" ]; # Override existing partition
                 mountpoint = "/";
+                mountOptions = [ "noatime" ];
               };
             };
           };
         };
       };
-      sshdone = {
+      ${sshdrawdisk1} = {
+        device = "${sshdrawdisk1}";
         type = "disk";
-        device = "sshdone";
         content = {
           type = "gpt";
-          mdadm = {
-            size = "100%";
-            content = {
-              type = "mdraid";
-              name = "raid1";
-            };
-          };
-        };
-      };
-      sshdtwo = {
-        type = "disk";
-        device = "sshdtwo";
-        content = {
-          type = "gpt";
-          mdadm = {
-            size = "100%";
-            content = {
-              type = "mdraid";
-              name = "raid1";
-            };
-          };
-        };
-      };
-      ssdone = {
-        type = "disk";
-        device = "ssdone";
-        content = {
-          type = "gpt";
-          mdadm = {
-            size = "100%";
-            content = {
-              type = "mdraid";
-              name = "raid2";
-            };
-          };
-        };
-      };
-      ssdtwo = {
-        type = "disk";
-        device = "ssdtwo";
-        content = {
-          type = "gpt";
-          mdadm = {
-            size = "100%";
-            content = {
-              type = "mdraid";
-              name = "raid2";
-            };
-          };
-        };
-      };
-      ssdthree = {
-        type = "disk";
-        device = "ssdthree";
-        content = {
-          type = "gpt";
-          mdadm = {
-            size = "100%";
-            content = {
-              type = "mdraid";
-              name = "raid2";
-            };
-          };
-        };
-      };
-      ssdfour = {
-        type = "disk";
-        device = "ssdfour";
-        content = {
-          type = "gpt";
-          mdadm = {
-            size = "100%";
-            content = {
-              type = "mdraid";
-              name = "raid2";
-            };
-          };
-        };
-      };
-      mdadm = {
-        raid1 = {
-          type = "mdadm";
-          level = 1;
-          content = {
-            type = "gpt";
-            partitions.primary = {
+          partitions = {
+            sshd = {
+              label = "sshd";
+              name = "sshd";
               size = "100%";
               content = {
-                type = "filesystem";
-                format = "ext4";
-                mountpoint = "/pvc/sshd";
+                type = "btrfs";
+                extraArgs = [ "-f" "-m raid1 -d raid1" "${sshdrawdisk2}" ];
+                mountpoint = "/opt/sshd";
+                mountOptions = [ "noatime" ];
               };
             };
           };
         };
-        raid2 = {
-          type = "mdadm";
-          level = 10;
-          content = {
-            type = "gpt";
-            partitions.primary = {
+      };
+      ${ssdrawdisk1} = {
+        device = "${ssdrawdisk1}";
+        type = "disk";
+        content = {
+          type = "gpt";
+          partitions = {
+            sshd = {
+              label = "ssd";
+              name = "ssd";
               size = "100%";
               content = {
-                type = "filesystem";
-                format = "ext4";
-                mountpoint = "/pvc/ssd";
+                type = "btrfs";
+                extraArgs = [ "-f" "-m raid10 -d raid10" "${ssdrawdisk2}" "${ssdrawdisk3}" "${ssdrawdisk4}" ];
+                mountpoint = "/opt/ssd";
+                mountOptions = [ "noatime" ];
               };
             };
           };
@@ -149,4 +82,5 @@
       };
     };
   };
+ };
 }
