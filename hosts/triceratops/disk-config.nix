@@ -71,7 +71,7 @@ in
               size = "100%";
               content = {
                 type = "btrfs";
-                extraArgs = [ "-f" "-m raid1 -d raid1" "${sshdrawdisk2}" ];
+                extraArgs = [ "-f" "-m raid1 -d raid1" "${sshdrawdisk1}" "${sshdrawdisk2}" ];
                 mountpoint = "/opt/sshd";
                 mountOptions = [ "noatime" ];
               };
