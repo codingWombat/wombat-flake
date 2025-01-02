@@ -1,17 +1,17 @@
 let
-  sshdrawdisk1 = "/dev/vda"; # CHANGE THESE
-  sshdrawdisk2 = "/dev/vdb"; # CHANGE THESE
+  sshdrawdisk1 = "/dev/sda"; # CHANGE THESE
+  sshdrawdisk2 = "/dev/sdb"; # CHANGE THESE
 
-  ssdrawdisk1 = "/dev/vda"; # CHANGE THESE
-  ssdrawdisk2 = "/dev/vdb"; # CHANGE THESE
-  ssdrawdisk3 = "/dev/vda"; # CHANGE THESE
-  ssdrawdisk4 = "/dev/vdb"; # CHANGE THESE
+#  ssdrawdisk1 = "/dev/vda"; # CHANGE THESE
+#  ssdrawdisk2 = "/dev/vdb"; # CHANGE THESE
+#  ssdrawdisk3 = "/dev/vda"; # CHANGE THESE
+#  ssdrawdisk4 = "/dev/vdb"; # CHANGE THESE
 in
 {
   disko.devices = {
     disk = {
       main = {
-        device = "/dev/vda";
+        device = "/dev/nvme0";
         type = "disk";
         content = {
           type = "gpt";
@@ -60,26 +60,26 @@ in
           };
         };
       };
-      ${ssdrawdisk1} = {
-        device = "${ssdrawdisk1}";
-        type = "disk";
-        content = {
-          type = "gpt";
-          partitions = {
-            sshd = {
-              label = "ssd";
-              name = "ssd";
-              size = "100%";
-              content = {
-                type = "btrfs";
-                extraArgs = [ "-f" "-m raid10 -d raid10" "${ssdrawdisk2}" "${ssdrawdisk3}" "${ssdrawdisk4}" ];
-                mountpoint = "/opt/ssd";
-                mountOptions = [ "noatime" ];
-              };
-            };
-          };
-        };
-      };
+#      ${ssdrawdisk1} = {
+#        device = "${ssdrawdisk1}";
+#        type = "disk";
+#        content = {
+#          type = "gpt";
+#          partitions = {
+#            sshd = {
+#              label = "ssd";
+#              name = "ssd";
+#              size = "100%";
+#              content = {
+#                type = "btrfs";
+#                extraArgs = [ "-f" "-m raid10 -d raid10" "${ssdrawdisk2}" "${ssdrawdisk3}" "${ssdrawdisk4}" ];
+#                mountpoint = "/opt/ssd";
+#                mountOptions = [ "noatime" ];
+#              };
+#            };
+#          };
+#        };
+#      };
     };
   };
  };
