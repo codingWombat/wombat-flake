@@ -9,7 +9,7 @@ let
 in
 {
   disko.devices = {
-    disk0 = {
+    disk = {
       main = {
         device = "/dev/nvme0";
         type = "disk";
@@ -41,27 +41,26 @@ in
           };
         };
       };
-    };
-    disk1 = {
-      device = "${sshdrawdisk1}";
-      type = "disk";
-      content = {
-        type = "gpt";
-        partitions = {
-          sshd = {
-            label = "sshd";
-            name = "sshd";
-            size = "100%";
-            content = {
-              type = "btrfs";
-              extraArgs = [ "-f" "-m raid1 -d raid1" "${sshdrawdisk2}" ];
-              mountpoint = "/opt/sshd";
-              mountOptions = [ "noatime" ];
+      sshd = {
+        device = "${sshdrawdisk1}";
+        type = "disk";
+        content = {
+          type = "gpt";
+          partitions = {
+            sshd = {
+              label = "sshd";
+              name = "sshd";
+              size = "100%";
+              content = {
+                type = "btrfs";
+                extraArgs = [ "-f" "-m raid1 -d raid1" "${sshdrawdisk2}" ];
+                mountpoint = "/opt/sshd";
+                mountOptions = [ "noatime" ];
+              };
             };
           };
         };
       };
-    };
 #      ${ssdrawdisk1} = {
 #        device = "${ssdrawdisk1}";
 #        type = "disk";
@@ -82,5 +81,6 @@ in
 #          };
 #        };
 #      };
+    };
   };
 }
