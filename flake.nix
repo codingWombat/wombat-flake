@@ -29,10 +29,19 @@
       modules = [ ./hosts/codingwombat/configuration.nix ] ++ modules;
     };
 
-    nixosConfigurations."antman" = nixpkgs.lib.nixosSystem {
+    nixosConfigurations."velociraptor" = nixpkgs.lib.nixosSystem {
       system = "aarch64-linux";
-      modules = [ ./hosts/antman/configuration.nix
-        ./hosts/antman/disk-config.nix
+      modules = [ ./hosts/velociraptor/configuration.nix
+        ./hosts/velociraptor/disk-config.nix
+        disko.nixosModules.disko
+      ] ++ modules ++ linuxModules;
+      specialArgs = { inherit inputs; inherit publicKeys; };
+    };
+
+    nixosConfigurations."triceratops" = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      modules = [ ./hosts/triceratops/configuration.nix
+        ./hosts/triceratops/disk-config.nix
         disko.nixosModules.disko
       ] ++ modules ++ linuxModules;
       specialArgs = { inherit inputs; inherit publicKeys; };
