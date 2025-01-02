@@ -41,24 +41,6 @@ in
           };
         };
       };
-      sshd2 = {
-        device = "${sshdrawdisk2}";
-        type = "disk";
-        content = {
-          type = "gpt";
-          partitions = {
-            sshd = {
-              label = "sshd";
-              name = "sshd";
-              size = "100%";
-              content = {
-                type = "btrfs";
-                extraArgs = [ "-f" ];
-              };
-            };
-          };
-        };
-      };
       sshd1 = {
         device = "${sshdrawdisk1}";
         type = "disk";
