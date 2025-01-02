@@ -9,7 +9,7 @@ let
 in
 {
   disko.devices = {
-    disk = {
+    disk0 = {
       main = {
         device = "/dev/nvme0";
         type = "disk";
@@ -42,7 +42,7 @@ in
         };
       };
     };
-    ${sshdrawdisk1} = {
+    disk1 = {
       device = "${sshdrawdisk1}";
       type = "disk";
       content = {
