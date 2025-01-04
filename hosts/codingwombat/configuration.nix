@@ -7,7 +7,8 @@
 {
   environment.darwinConfig = inputs.self + /hosts/codingwombat/configuration.nix;
 
-  codingwombat.cli.enable = true;
+  codingwombat.clifluff.enable = true;
+  codingwombat.clitools.enable = true;
   codingwombat.kubernetes.enable = true;
   codingwombat.podman.enable = true;
   codingwombat.dev.enable = true;

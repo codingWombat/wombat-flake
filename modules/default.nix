@@ -1,6 +1,7 @@
 {
   imports = [
-    ./cli.nix
+    ./clifluff.nix
+    ./clitools.nix
     ./kubernetes.nix
     ./podman.nix
     ./development.nix

@@ -15,6 +15,8 @@
   ];
 
   codingwombat.wombatmin.enable = true;
+  codingwombat.clitools.enable = true;
+  codingwombat.server.enable = true;
 
   # Necessary for using flakes on this system.
   nix.settings.experimental-features = "nix-command flakes";

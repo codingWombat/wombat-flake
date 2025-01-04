@@ -1,12 +1,12 @@
 { pkgs, lib, config, ... }:
 let
   inherit (lib) mkOption mkIf;
-  cfg = config.codingwombat.cli;
+  cfg = config.codingwombat.clifluff;
 in
 {
-  options.codingwombat.cli = {
+  options.codingwombat.clifluff = {
     enable = mkOption {
-      description = "enable cli tooling";
+      description = "enable cli fluff";
       type = lib.types.bool;
       default = false;
     };
@@ -16,15 +16,6 @@ in
     environment.systemPackages = with pkgs; [
       zsh-autosuggestions
       zsh-syntax-highlighting
-      btop
-      fastfetch
-      bottom
-      fzf
-      bat
-      fd
-      zoxide
-      cheat
-      lsd
       starship
     ];
   };
