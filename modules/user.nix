@@ -27,5 +27,10 @@ in
         extraGroups  = [ "wheel" "networkmanager" ];
         openssh.authorizedKeys.keys = publicKeys;
       };
+
+      programs.git.config = {
+        user.name = "codingWombat";
+        user.email = "main@codingwombat.dev";
+      };
     };
 }
