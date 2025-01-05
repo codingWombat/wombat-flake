@@ -72,7 +72,7 @@
 
     ## 2.5 gig nics
     bonds."bond-10" = {
-      interfaces = ["ens1" "ens9"];
+      interfaces = ["ens1" "ens9" "enp5s0" "enp6s0"];
       driverOptions = {
         mode = "802.3ad";
         xmit_hash_policy = "layer3+4";
