@@ -28,7 +28,7 @@
     ];
   };
 
-  environment.sessionVariables = { LIBVA_DRIVER_NAME = "iHD"; };
+  environment.sessionVariables = { LIBVA_DRIVER_NAME = "i965"; };
 
   environment.systemPackages = with pkgs; [
     helix
