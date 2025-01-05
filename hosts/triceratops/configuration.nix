@@ -32,6 +32,7 @@
 
   environment.systemPackages = with pkgs; [
     helix
+    intel-gpu-tools
   ];
 
   codingwombat.wombatmin.enable = true;
