@@ -18,56 +18,33 @@
   codingwombat.clitools.enable = true;
   codingwombat.server.enable = true;
 
-  services.tailscale.enable = true;
-  networking.hostName = "triceratops";
-
-  systemd.network.enable = true;
-
-  systemd.network.networks = {
-    "10-1gig-enp12s0" = {
-      matchConfig.name = "enp12s0";
-      address = [
-        "192.168.111.11/24"
-      ];
-      routes = [
-        {Gateway = "192.168.11.1"; }
-      ];
-    };
-
-    "20-1gig-enp13s0" = {
-      matchConfig.name = "enp13s0";
-      address = [
-        "192.168.111.12/24"
-      ];
-      routes = [
-        {Gateway = "192.168.11.1"; }
-      ];
-    };
-
-  };
-  networking.useNetworkd = true;
   networking.useDHCP = false;
 
   networking = {
-#    hostName = "triceratops";
+    hostName = "triceratops";
     firewall = {
         allowedTCPPorts = [];
         checkReversePath = "loose";
     };
     nameservers = ["1.1.1.1" "9.9.9.9"];
-    ## 1gig nics
-#    interfaces.enp12s0 = {
-#      ipv4.addresses = [{
-#          address = "192.168.111.11";
-#          prefixLength = 24;
-#      }];
-#    };
-#    interfaces.enp13s0 = {
-#      ipv4.addresses = [{
-#          address = "192.168.111.12";
-#          prefixLength = 24;
-#      }];
-#    };
+    defaultGateway = {
+      address = "192.168.111.1";
+      interface = "enp12s0";
+    };
+
+    ## 1gig nic
+    interfaces.enp12s0 = {
+      ipv4.addresses = [{
+          address = "192.168.111.11";
+          prefixLength = 24;
+      }];
+    };
+    interfaces.enp13s0 = {
+      ipv4.addresses = [{
+          address = "192.168.111.12";
+          prefixLength = 24;
+      }];
+    };
 #    ### 2.5 gig nics
 #    interfaces.ens1 = {
 #      ipv4.addresses = [{
@@ -94,10 +71,7 @@
 #      }];
 #    };
 
-#    defaultGateway = {
-#      address = "192.168.111.1";
-#      interface = "enp12s0";
-#    };
+
   };
 
   # Necessary for using flakes on this system.
