@@ -21,7 +21,7 @@
   services.tailscale.enable = true;
 
   networking = {
-    hostname = "triceratops";
+    hostName = "triceratops";
     firewall = {
         allowedTCPPorts = [];
         checkReversePath = "loose";
