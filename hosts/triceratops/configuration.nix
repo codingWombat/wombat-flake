@@ -39,6 +39,7 @@
   codingwombat.wombatmin.enable = true;
   codingwombat.clitools.enable = true;
   codingwombat.server.enable = true;
+  codingwombat.k3shost.enable = true;
 
   networking.useDHCP = true;
 
@@ -48,7 +49,7 @@
         allowedTCPPorts = [];
         checkReversePath = "loose";
     };
-    nameservers = ["1.1.1.1" "9.9.9.9"];
+    nameservers = ["192.168.111.1" "1.1.1.1" "9.9.9.9"];
     defaultGateway = {
       address = "192.168.111.1";
       interface = "enp12s0";
