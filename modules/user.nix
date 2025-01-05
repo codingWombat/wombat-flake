@@ -21,6 +21,8 @@ in
         settings.PasswordAuthentication = false;
         settings.KbdInteractiveAuthentication = false;
       };
+      
+      programs.zsh.enable = true;
 
       users.users.wombatmin = {
         isNormalUser = true;
