@@ -18,6 +18,27 @@
   codingwombat.clitools.enable = true;
   codingwombat.server.enable = true;
 
+  services.tailscale.enable = true;
+
+  networking = {
+    hostname = "triceratops";
+    firewall = {
+        allowedTCPPorts = [];
+        checkReversePath = "loose";
+    };
+    nameservers = ["192.168.111.1" "1.1.1.1" "9.9.9.9"];
+    interfaces.enp6s0 = {
+    ipv4.addresses = [{
+        address = "192.168.111.11";
+        prefixLength = 24;
+    }];
+    };
+    defaultGateway = {
+      address = "192.168.111.1";
+      interface = "enp6s0";
+    };
+  };
+
   # Necessary for using flakes on this system.
   nix.settings.experimental-features = "nix-command flakes";
 

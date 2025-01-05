@@ -26,6 +26,7 @@ in
         isNormalUser = true;
         extraGroups  = [ "wheel" "networkmanager" ];
         openssh.authorizedKeys.keys = publicKeys;
+        shell = pkgs.zsh;
       };
 
       programs.git.config = {
