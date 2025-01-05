@@ -46,6 +46,7 @@
 
   };
   networking.useNetworkd = true;
+  networking.useDHCP = false;
 
   networking = {
 #    hostName = "triceratops";
