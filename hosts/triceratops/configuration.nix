@@ -79,33 +79,6 @@
         xmit_hash_policy = "layer3+4";
       };
     };
-
-#    interfaces.ens1 = {
-#      ipv4.addresses = [{
-#          address = "192.168.111.13";
-#          prefixLength = 24;
-#      }];
-#    };
-#    interfaces.ens9 = {
-#      ipv4.addresses = [{
-#          address = "192.168.111.14";
-#          prefixLength = 24;
-#      }];
-#    };
-#    interfaces.enp5s0 = {
-#      ipv4.addresses = [{
-#          address = "192.168.111.15";
-#          prefixLength = 24;
-#      }];
-#    };
-#    interfaces.enp6s0 = {
-#      ipv4.addresses = [{
-#          address = "192.168.111.16";
-#          prefixLength = 24;
-#      }];
-#    };
-
-
   };
 
   # Necessary for using flakes on this system.
