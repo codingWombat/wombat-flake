@@ -24,7 +24,7 @@
       intel-ocl
       intel-vaapi-driver
       vpl-gpu-rt
-      mesa_drivers
+      mesa.drivers
     ];
   };
 
