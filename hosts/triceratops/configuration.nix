@@ -15,15 +15,20 @@
     };
     efi.canTouchEfiVariables = true;
   };
-#
-#  nixpkgs.config.allowUnfree = true;
-#
-#  hardware.graphics = {
-#    enable = true;
-#    extraPackages = with pkgs; [ intel-media-driver intel-ocl intel-vaapi-driver vpl-gpu-rt ];
-#  };
 
-#  environment.sessionVariables = { LIBVA_DRIVER_NAME = "iHD"; };
+  nixpkgs.config.allowUnfree = true;
+
+  hardware.graphics = {
+    enable = true;
+    extraPackages = with pkgs; [ intel-media-driver
+      intel-ocl
+      intel-vaapi-driver
+      vpl-gpu-rt
+      mesa_drivers
+    ];
+  };
+
+  environment.sessionVariables = { LIBVA_DRIVER_NAME = "iHD"; };
 
   environment.systemPackages = with pkgs; [
     helix
