@@ -32,7 +32,6 @@
       routes = [
         {Gateway = "192.168.11.1"; }
       ];
-      linkConfig.RequiredForOnline = "routeable";
     };
 
     "20-1gig-enp13s0" = {
@@ -43,10 +42,10 @@
       routes = [
         {Gateway = "192.168.11.1"; }
       ];
-      linkConfig.RequiredForOnline = "routeable";
     };
 
   };
+  networking.useNetworkd = true;
 
   networking = {
 #    hostName = "triceratops";
@@ -54,7 +53,7 @@
         allowedTCPPorts = [];
         checkReversePath = "loose";
     };
-    nameservers = ["192.168.111.1" "1.1.1.1" "9.9.9.9"];
+    nameservers = ["1.1.1.1" "9.9.9.9"];
     ## 1gig nics
 #    interfaces.enp12s0 = {
 #      ipv4.addresses = [{
