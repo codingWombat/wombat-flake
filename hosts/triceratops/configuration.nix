@@ -27,15 +27,21 @@
         checkReversePath = "loose";
     };
     nameservers = ["192.168.111.1" "1.1.1.1" "9.9.9.9"];
-    interfaces.enp6s0 = {
-    ipv4.addresses = [{
-        address = "192.168.111.11";
-        prefixLength = 24;
-    }];
+    interfaces.enp12s0 = {
+      ipv4.addresses = [{
+          address = "192.168.111.11";
+          prefixLength = 24;
+      }];
+    };
+    interfaces.enp13s0 = {
+      ipv4.addresses = [{
+          address = "192.168.111.12";
+          prefixLength = 24;
+      }];
     };
     defaultGateway = {
       address = "192.168.111.1";
-      interface = "enp6s0";
+      interface = "enp12s0";
     };
   };
 
