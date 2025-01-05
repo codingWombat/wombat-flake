@@ -20,6 +20,7 @@ in
         enable = true;
         settings.PasswordAuthentication = false;
         settings.KbdInteractiveAuthentication = false;
+        openFirewall = true;
       };
       
       programs.zsh.enable = true;
