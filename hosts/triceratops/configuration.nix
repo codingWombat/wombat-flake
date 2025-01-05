@@ -18,7 +18,7 @@
   codingwombat.clitools.enable = true;
   codingwombat.server.enable = true;
 
-  networking.useDHCP = false;
+  networking.useDHCP = true;
 
   networking = {
     hostName = "triceratops";
@@ -34,12 +34,14 @@
 
     ## 1gig nic
     interfaces.enp12s0 = {
+      useDHCP = false;
       ipv4.addresses = [{
           address = "192.168.111.11";
           prefixLength = 24;
       }];
     };
     interfaces.enp13s0 = {
+      useDHCP = false;
       ipv4.addresses = [{
           address = "192.168.111.12";
           prefixLength = 24;
