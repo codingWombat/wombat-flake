@@ -70,7 +70,15 @@
       }];
     };
 
-#    ### 2.5 gig nics
+    ## 2.5 gig nics
+    bonds."bond-10" = {
+      interfaces = ["ens1" "ens9"];
+      driverOptions = {
+        mode = "802.3ad";
+        xmit_hash_policy = "layer3+4";
+      };
+    };
+
 #    interfaces.ens1 = {
 #      ipv4.addresses = [{
 #          address = "192.168.111.13";
