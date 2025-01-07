@@ -14,7 +14,7 @@ in
 
   config = mkIf cfg.enable {
     networking.firewall.allowedTCPPorts = [
-      6443
+      6443 80 443
     ];
     networking.firewall.allowedUDPPorts = [
       51820
