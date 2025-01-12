@@ -23,6 +23,7 @@ in
       zoxide
       cheat
       lsd
+      dig
     ];
   };
 }

@@ -18,6 +18,7 @@
     toot
     openscad
     nushell
+    sniffnet
   ];
 
   security.pam.enableSudoTouchIdAuth = true;
