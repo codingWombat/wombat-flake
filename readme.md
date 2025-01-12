@@ -2,7 +2,7 @@
 Rebuilding nixos darwin on a macbook
 ```shell
 
-darwin-rebuild switch --flake github:codingwombat/wombat-falke#codingwombat
+darwin-rebuild switch --flake github:codingwombat/wombat-flake#codingwombat
 ```
 
 ### installing a new linux system with hard drive partioning
@@ -24,5 +24,5 @@ nixos-generate-config --no-filesystems --root /mnt
 
 #### install nixos using flakes from github
 ```shell
-sudo nixos-install --root /mnt --flake github:codingwombat/wombat-falke#<hostname>
+sudo nixos-install --root /mnt --flake github:codingwombat/wombat-flake#<hostname>
 ```
