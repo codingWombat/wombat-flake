@@ -91,14 +91,6 @@
     interfaces.enp6s0 = {
       useDHCP = false;
     };
-
-    bonds."bond-10" = {
-      interfaces = ["ens1" "ens9" "enp5s0" "enp6s0"];
-      driverOptions = {
-        mode = "802.3ad";
-        xmit_hash_policy = "layer3+4";
-      };
-    };
   };
 
   # Necessary for using flakes on this system.
