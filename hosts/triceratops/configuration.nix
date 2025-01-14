@@ -56,40 +56,56 @@
     };
 
     ## 1gig nic
+    ### main
     interfaces.enp12s0 = {
       useDHCP = false;
       ipv4.addresses = [{
-          address = "192.168.111.11";
-          prefixLength = 24;
+        address = "192.168.111.11";
+        prefixLength = 24;
       }];
     };
+
+    ### hass os vm
     interfaces.enp13s0 = {
       useDHCP = false;
       ipv4.addresses = [{
-          address = "192.168.111.12";
-          prefixLength = 24;
+        address = "192.168.111.12";
+        prefixLength = 24;
       }];
     };
 
     ## 2.5 gig nics
+    ### kube metallb
     interfaces.ens1 = {
       useDHCP = false;
       ipv4.addresses = [{
-          address = "192.168.111.18";
-          prefixLength = 24;
+        address = "192.168.111.18";
+        prefixLength = 24;
       }];
     };
 
     interfaces.ens9 = {
       useDHCP = false;
+      ipv4.addresses = [{
+        address = "192.168.111.25";
+        prefixLength = 24;
+      }];
     };
 
     interfaces.enp5s0 = {
       useDHCP = false;
+      ipv4.addresses = [{
+        address = "192.168.111.26";
+        prefixLength = 24;
+      }];
     };
 
     interfaces.enp6s0 = {
       useDHCP = false;
+      ipv4.addresses = [{
+        address = "192.168.111.27";
+        prefixLength = 24;
+      }];
     };
   };
 
