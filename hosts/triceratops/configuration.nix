@@ -72,6 +72,26 @@
     };
 
     ## 2.5 gig nics
+    interfaces.ens1 = {
+      useDHCP = false;
+      ipv4.addresses = [{
+          address = "192.168.111.18";
+          prefixLength = 24;
+      }];
+    };
+
+    interfaces.ens9 = {
+      useDHCP = false;
+    };
+
+    interfaces.enp5s0 = {
+      useDHCP = false;
+    };
+
+    interfaces.enp6s0 = {
+      useDHCP = false;
+    };
+
     bonds."bond-10" = {
       interfaces = ["ens1" "ens9" "enp5s0" "enp6s0"];
       driverOptions = {
