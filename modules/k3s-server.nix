@@ -28,7 +28,7 @@ in
       "--write-kubeconfig-mode 640"
       "--kube-proxy-arg=ipvs-strict-arp=true"
       "--flannel-backend wireguard-native"
-      "--flannel-iface=bond-10"
+      "--flannel-iface=ens1"
       "--node-name triceratops"
       "--bind-address 192.168.111.18"
       "--node-ip 192.168.111.18"
