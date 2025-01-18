@@ -16,7 +16,6 @@
   environment.systemPackages = with pkgs; [
     vlc-bin
     toot
-    openscad
     nushell
     sniffnet
   ];
