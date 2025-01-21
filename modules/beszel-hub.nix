@@ -30,7 +30,7 @@ in {
   config = mkIf cfg.enable {
 
     networking.firewall.allowedTCPPorts = [
-          8090
+      8090
     ];
 
     environment.systemPackages = with pkgs; [
@@ -43,7 +43,7 @@ in {
       wantedBy = [ "multi-user.target" ];
 
       serviceConfig = {
-        ExecStart = "/run/current-system/sw/bin/beszel-hub serve";
+        ExecStart = "/run/current-system/sw/bin/beszel-hub serve --http \"192.168.111.11:8090\"";
         User = cfg.user;
         Group = builtins.head cfg.groups;
         Restart = "always";
