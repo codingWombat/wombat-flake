@@ -7,12 +7,6 @@ in {
   options.codingwombat.beszel-hub = {
     enable = mkEnableOption "Beszel hub service";
 
-    package = mkOption {
-      type = types.package;
-      default = pkgs.beszel;
-      description = "The beszel package to use.";
-    };
-
     user = mkOption {
       type = types.str;
       default = "root";
@@ -37,6 +31,10 @@ in {
 
     networking.firewall.allowedTCPPorts = [
           8090
+    ];
+
+    environment.systemPackages = with pkgs; [
+      beszel
     ];
 
     systemd.services.beszel-hub = {
