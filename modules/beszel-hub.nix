@@ -43,7 +43,7 @@ in {
       wantedBy = [ "multi-user.target" ];
 
       serviceConfig = {
-        ExecStart = "/run/current-system/sw/bin/beszel server --http \"0.0.0.0:8090\"";
+        ExecStart = "/run/current-system/sw/bin/beszel-hub serve";
         User = cfg.user;
         Group = builtins.head cfg.groups;
         Restart = "always";
