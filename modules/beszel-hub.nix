@@ -35,6 +35,10 @@ in {
 
   config = mkIf cfg.enable {
 
+    networking.firewall.allowedTCPPorts = [
+          8090
+    ];
+
     systemd.services.beszel-hub = {
       description = "Beszel Agent Service";
       after = [ "network.target" ];
