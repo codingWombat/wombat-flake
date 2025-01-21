@@ -40,6 +40,7 @@
   codingwombat.clitools.enable = true;
   codingwombat.server.enable = true;
   codingwombat.k3shost.enable = true;
+  codingwombat.beszel-hub.enable = true;
 
   networking.useDHCP = true;
 
