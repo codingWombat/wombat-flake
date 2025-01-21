@@ -34,13 +34,19 @@
   environment.systemPackages = with pkgs; [
     helix
     intel-gpu-tools
+    beszel
   ];
 
   codingwombat.wombatmin.enable = true;
   codingwombat.clitools.enable = true;
   codingwombat.server.enable = true;
   codingwombat.k3shost.enable = true;
-
+  codingwombat.beszel.enable = true;
+  codingwombat.beszel-agent = {
+    enable = true;
+    extraFilesystems = [ "/opt/data" ];
+    gpu = true;
+  };
   networking.useDHCP = true;
 
   networking = {
