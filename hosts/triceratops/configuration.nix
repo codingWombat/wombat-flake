@@ -62,7 +62,7 @@
   networking = {
     hostName = "triceratops";
     firewall = {
-        allowedTCPPorts = [ 5900 ];
+        allowedTCPPorts = [ 5900 8123];
         checkReversePath = "loose";
     };
     nameservers = ["192.168.111.1" "1.1.1.1" "9.9.9.9"];
