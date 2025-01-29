@@ -35,7 +35,7 @@
     libvirtd = {
       enable = true;
       # Used for UEFI boot of Home Assistant OS guest image
-      qemuOvmf = true;
+      qemu.ovmf.enable = true;
     };
   };
 
@@ -62,7 +62,7 @@
   networking = {
     hostName = "triceratops";
     firewall = {
-        allowedTCPPorts = [];
+        allowedTCPPorts = [ 5900 ];
         checkReversePath = "loose";
     };
     nameservers = ["192.168.111.1" "1.1.1.1" "9.9.9.9"];
