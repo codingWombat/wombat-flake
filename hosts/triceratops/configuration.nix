@@ -31,10 +31,20 @@
 
   environment.sessionVariables = { LIBVA_DRIVER_NAME = "i965"; };
 
+  virtualisation = {
+    libvirtd = {
+      enable = true;
+      # Used for UEFI boot of Home Assistant OS guest image
+      qemuOvmf = true;
+    };
+  };
+
   environment.systemPackages = with pkgs; [
     helix
     intel-gpu-tools
     beszel
+    virt-manager
+    usbutils
   ];
 
   codingwombat.wombatmin.enable = true;
@@ -71,8 +81,10 @@
       }];
     };
 
+    bridges.br0.interfaces = [ "enp13s0" ];
+
     ### hass os vm
-    interfaces.enp13s0 = {
+    interfaces.br0 = {
       useDHCP = false;
       ipv4.addresses = [{
         address = "192.168.111.12";
