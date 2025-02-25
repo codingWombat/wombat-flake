@@ -15,7 +15,11 @@ in
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
       # nix lsp
-      nixd
+      nil
+      # yaml lsp
+      yaml-language-server
+      # helm lsp
+      helm_ls
       # java
       temurin-bin-23
       # dotnet

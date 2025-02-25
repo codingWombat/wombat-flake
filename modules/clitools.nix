@@ -24,6 +24,7 @@ in
       cheat
       lsd
       dig
+      silver-searcher
     ];
   };
 }
