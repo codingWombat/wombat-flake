@@ -19,7 +19,7 @@ in
       # yaml lsp
       yaml-language-server
       # helm lsp
-      helm_ls
+      helm-ls
       # java
       temurin-bin-23
       # dotnet
