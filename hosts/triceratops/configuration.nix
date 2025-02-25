@@ -57,6 +57,8 @@
     extraFilesystems = [ "/opt/data" ];
     gpu = true;
   };
+  codingwombat.psu.enable = true;
+
   networking.useDHCP = true;
 
   networking = {
