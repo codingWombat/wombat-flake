@@ -28,6 +28,8 @@ in
       rustup
       # editor
       helix
+      # go
+      go
     ];
   };
 }
