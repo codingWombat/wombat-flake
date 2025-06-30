@@ -30,6 +30,8 @@ in
       helix
       # go
       go
+      gopls
+      golangci-lint-langserver
     ];
   };
 }
