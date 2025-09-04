@@ -23,7 +23,6 @@
 
   nix.gc = {
     automatic = true;
-    randomizedDelaySec = "14m";
     options = "--delete-older-than 10d";
   };
   # Necessary for using flakes on this system.
