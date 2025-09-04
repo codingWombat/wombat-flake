@@ -1,5 +1,4 @@
 {
-  lib,
   pkgs,
   inputs,
   ...
@@ -22,6 +21,11 @@
 
   security.pam.services.sudo_local.touchIdAuth = true;
 
+  nix.gc = {
+    automatic = true;
+    randomizedDelaySec = "14m";
+    options = "--delete-older-than 10d";
+  };
   # Necessary for using flakes on this system.
   nix.settings.experimental-features = "nix-command flakes";
 
