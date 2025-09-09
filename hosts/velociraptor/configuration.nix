@@ -21,9 +21,6 @@
   programs.hyprland.enable = true;
   codingwombat.wombatmin.enable = true;
 
-  services.spice-vdagentd.enable = true;
-  services.qemuGuest.enable = true;
-
   hardware.opengl.enable = true;
   hardware.graphics.enable = true;
 
