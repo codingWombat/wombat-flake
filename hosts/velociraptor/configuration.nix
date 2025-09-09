@@ -7,7 +7,7 @@
   #boot.loader.grub.enable = true;
   #boot.loader.grub.efiSupport = true;
 
-  boot.loader = {    
+  boot.loader = {
     systemd-boot.enable = true;
     efi.canTouchEfiVariables = true;
   };
@@ -27,5 +27,5 @@
   # The platform the configuration will be used on.
   nixpkgs.hostPlatform = "aarch64-linux";
 
-  system.stateVersion = "24.11";
+  system.stateVersion = "25.05";
 }
