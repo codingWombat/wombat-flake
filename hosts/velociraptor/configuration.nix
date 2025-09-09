@@ -23,6 +23,9 @@
   services.spice-vdagentd.enable = true;
   services.qemuGuest.enable = true;
 
+  hardware.opengl.enable = true;
+  hardware.graphics.enable = true;
+
   # Necessary for using flakes on this system.
   nix.settings.experimental-features = "nix-command flakes";
 
