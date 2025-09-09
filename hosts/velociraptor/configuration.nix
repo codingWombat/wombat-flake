@@ -15,6 +15,7 @@
   environment.systemPackages = with pkgs; [
     helix
     kitty
+    mesa
   ];
 
   programs.hyprland.enable = true;
