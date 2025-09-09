@@ -19,7 +19,7 @@ sudo nix --extra-experimental-features "nix-command flakes" run github:nix-commu
 
 #### generate base nix configuration
 ```shell
-nixos-generate-config --no-filesystems --root /mnt
+sudo nixos-generate-config --no-filesystems --root /mnt
 ```
 
 #### install nixos using flakes from github

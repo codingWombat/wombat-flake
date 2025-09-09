@@ -14,8 +14,10 @@
 
   environment.systemPackages = with pkgs; [
     helix
+    kitty
   ];
 
+  programs.hyprland.enable = true;
   codingwombat.wombatmin.enable = true;
 
   # Necessary for using flakes on this system.
