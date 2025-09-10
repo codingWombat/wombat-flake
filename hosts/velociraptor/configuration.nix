@@ -17,8 +17,23 @@
     kitty
   ];
 
-  programs.hyprland.enable = true;
-  programs.hyprland.xwayland.enable = true;
+  programs.hyprland = {
+    enable = true;
+    xwayland.enable = true;
+    portalPackage = pkgs.xdg-desktop-portal-hyprland; # xdph none git
+  };
+
+  xdg.portal = {
+    enable = true;
+    wlr.enable = false;
+    extraPortals = [
+      pkgs.xdg-desktop-portal-gtk
+    ];
+    configPackages = [
+      pkgs.xdg-desktop-portal-gtk
+      pkgs.xdg-desktop-portal
+    ];
+  };
 
   codingwombat.wombatmin.enable = true;
 
