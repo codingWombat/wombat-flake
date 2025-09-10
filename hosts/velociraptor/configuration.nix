@@ -14,7 +14,6 @@
 
   environment.systemPackages = with pkgs; [
     helix
-    wezterm
     kitty
   ];
 

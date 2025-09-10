@@ -1,4 +1,10 @@
-{ pkgs, lib, config, publicKeys, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  publicKeys,
+  ...
+}:
 let
   inherit (lib) mkOption mkIf;
   cfg = config.codingwombat.wombatmin;
@@ -13,28 +19,36 @@ in
     };
   };
 
-  config = mkIf cfg.enable
-    {
-      #Set some system wide options
-      services.openssh = {
-        enable = true;
-        settings.PasswordAuthentication = false;
-        settings.KbdInteractiveAuthentication = false;
-        openFirewall = true;
-      };
-      
-      programs.zsh.enable = true;
-
-      users.users.wombatmin = {
-        isNormalUser = true;
-        extraGroups  = [ "wheel" "networkmanager" ];
-        openssh.authorizedKeys.keys = publicKeys;
-        shell = pkgs.zsh;
-      };
-
-      programs.git.config = {
-        user.name = "codingWombat";
-        user.email = "main@codingwombat.dev";
-      };
+  config = mkIf cfg.enable {
+    #Set some system wide options
+    services.openssh = {
+      enable = true;
+      settings.PasswordAuthentication = false;
+      settings.KbdInteractiveAuthentication = false;
+      openFirewall = true;
     };
+
+    programs.zsh.enable = true;
+
+    users.users.wombatmin = {
+      isNormalUser = true;
+      extraGroups = [
+        "networkmanager"
+        "wheel"
+        "libvirtd"
+        "scanner"
+        "lp"
+        "video"
+        "input"
+        "audio"
+      ];
+      openssh.authorizedKeys.keys = publicKeys;
+      shell = pkgs.zsh;
+    };
+
+    programs.git.config = {
+      user.name = "codingWombat";
+      user.email = "main@codingwombat.dev";
+    };
+  };
 }
