@@ -3,7 +3,7 @@
     disk = {
       main = {
         # When using disko-install, we will overwrite this value from the commandline
-        device = "/dev/vda";
+        device = "/dev/nvme0n1";
         type = "disk";
         content = {
           type = "gpt";
