@@ -15,15 +15,14 @@
   environment.systemPackages = with pkgs; [
     helix
     kitty
-    mesa
   ];
 
   programs.hyprland.enable = true;
   codingwombat.wombatmin.enable = true;
 
-  hardware.opengl.enable = true;
   hardware.graphics.enable = true;
-
+  virtualisation.vmware.guest.enable = true;
+  
   # Necessary for using flakes on this system.
   nix.settings.experimental-features = "nix-command flakes";
 
