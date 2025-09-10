@@ -14,10 +14,11 @@
 
   environment.systemPackages = with pkgs; [
     helix
-    kitty
+    wezterm
   ];
 
   programs.hyprland.enable = true;
+  
   codingwombat.wombatmin.enable = true;
 
   hardware.graphics.enable = true;
