@@ -18,6 +18,7 @@
   ];
 
   programs.hyprland.enable = true;
+  programs.hyprland.xwayland.enable = true;
   
   codingwombat.wombatmin.enable = true;
 
