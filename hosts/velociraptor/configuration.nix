@@ -13,10 +13,13 @@
   };
 
   environment.systemPackages = with pkgs; [
-    helix
+    ghostty
   ];
 
   codingwombat.wombatmin.enable = true;
+  codingwombat.clifluff.enable = true;
+  codingwombat.clitools.enable = true;
+  codingwombat.dev.enable = true;
 
   hardware.graphics.enable = true;
   virtualisation.vmware.guest.enable = true;
