@@ -9,7 +9,6 @@
   codingwombat.clifluff.enable = true;
   codingwombat.clitools.enable = true;
   codingwombat.kubernetes.enable = true;
-  codingwombat.podman.enable = true;
   codingwombat.dev.enable = true;
 
   environment.systemPackages = with pkgs; [
