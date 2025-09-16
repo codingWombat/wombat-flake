@@ -21,6 +21,12 @@
   hardware.graphics.enable = true;
   virtualisation.vmware.guest.enable = true;
 
+  services.displayManager.sddm.enable = true;
+  services.displayManager.sddm.wayland.enable = true;
+  services.desktopManager.plasma6.enable = true;
+
+  services.displayManager.sddm.settings.General.DisplayServer = "wayland";
+
   # Necessary for using flakes on this system.
   nix.settings.experimental-features = "nix-command flakes";
 
