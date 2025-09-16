@@ -14,11 +14,14 @@
 
   environment.systemPackages = with pkgs; [
     ghostty
+    wl-clipboard
   ];
 
   codingwombat.wombatmin.enable = true;
   codingwombat.clifluff.enable = true;
   codingwombat.clitools.enable = true;
+  codingwombat.podman.enable = true;
+  codingwombat.kubernetes.enable = true;
   codingwombat.dev.enable = true;
 
   hardware.graphics.enable = true;
