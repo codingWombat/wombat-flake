@@ -18,8 +18,6 @@ in
   };
 
   config = mkIf cfg.enable {
-
-    programs.git.enable = true;
     environment.systemPackages = with pkgs; [
       # nix lsp
       nil
@@ -39,6 +37,7 @@ in
       go
       gopls
       golangci-lint-langserver
+      git
     ];
   };
 }
