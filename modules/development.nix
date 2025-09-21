@@ -30,7 +30,7 @@ in
       # java
       temurin-bin-23
       # dotnet
-      dotnet-sdk_9
+      dotnet-sdk_10
       # rust
       rustup
       # editor
