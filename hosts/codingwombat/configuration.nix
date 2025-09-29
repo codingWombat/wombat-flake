@@ -16,6 +16,7 @@
     toot
     nushell
     sniffnet
+    ansible_2_18
   ];
 
   security.pam.services.sudo_local.touchIdAuth = true;
