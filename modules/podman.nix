@@ -1,4 +1,9 @@
-{ pkgs, lib, config, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 let
   inherit (lib) mkOption mkIf;
   cfg = config.codingwombat.podman;
@@ -15,7 +20,7 @@ in
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
       podman
-      podman-desktop
+      # podman-desktop
       podman-compose
     ];
   };
