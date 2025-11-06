@@ -29,6 +29,7 @@ in
       temurin-bin-23
       # dotnet
       dotnet-sdk_10
+      omnisharp-roslyn
       # rust
       rustup
       # editor
