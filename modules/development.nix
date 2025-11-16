@@ -26,7 +26,7 @@ in
       # helm lsp
       helm-ls
       # java
-      temurin-bin-25
+      #temurin-bin-25
       # dotnet
       dotnet-sdk_10
       # rust
