@@ -118,18 +118,6 @@
         }
       ];
     };
-
-    interfaces.ens9 = {
-      useDHCP = false;
-    };
-
-    interfaces.enp5s0 = {
-      useDHCP = false;
-    };
-
-    interfaces.enp6s0 = {
-      useDHCP = false;
-    };
   };
 
   nix.gc = {
