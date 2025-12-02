@@ -75,18 +75,17 @@
       };
 
       nixosConfigurations."stegosaurus" = nixpkgs.lib.nixosSystem {
-            system = "x86_64-linux";
-            modules = [
-              ./hosts/stegosaurus/configuration.nix
-              nixos-hardware.nixosModules.apple-t2
-            ]
-            ++ modules
-            ++ t2Modules;
-            specialArgs = {
-              inherit inputs;
-              inherit publicKeys;
-            };
-          };
+        system = "x86_64-linux";
+        modules = [
+          ./hosts/stegosaurus/configuration.nix
+          nixos-hardware.nixosModules.apple-t2
+        ]
+        ++ modules
+        ++ t2Modules;
+        specialArgs = {
+          inherit inputs;
+          inherit publicKeys;
         };
+      };
     };
 }
