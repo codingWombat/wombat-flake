@@ -1,4 +1,9 @@
-{ pkgs, lib, config, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 let
   inherit (lib) mkOption mkIf;
   cfg = config.codingwombat.server;
@@ -6,7 +11,7 @@ in
 {
   options.codingwombat.server = {
     enable = mkOption {
-      description = "enable clitools tooling";
+      description = "enable server tooling";
       type = lib.types.bool;
       default = false;
     };

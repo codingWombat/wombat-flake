@@ -29,15 +29,10 @@
   time.timeZone = "Europe/Berlin";
 
   codingwombat.wombatmin.enable = true;
+  codingwombat.server.enable = true;
+  codingwombat.clitools.enable = true;
 
   environment.systemPackages = with pkgs; [
-    # helix
-    # wget
-    git
-    # zed-editor
-    # btop
-    # lsd
-    # wireguard-tools
     intel-gpu-tools
   ];
 
