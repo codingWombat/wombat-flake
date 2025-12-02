@@ -31,10 +31,14 @@
   codingwombat.wombatmin.enable = true;
   codingwombat.server.enable = true;
   codingwombat.clitools.enable = true;
+  codingwombat.psu.enable = true;
 
   environment.systemPackages = with pkgs; [
     intel-gpu-tools
+
   ];
+
+  nixpkgs.config.allowUnfree = true;
 
   services.openssh = {
     enable = true;
