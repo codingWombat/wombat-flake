@@ -44,6 +44,7 @@
   networking.nftables.enable = true;
 
   networking.hostName = "stegosaurus";
+  
   networking.firewall.interfaces.incusbr0.allowedTCPPorts = [
     53
     67
