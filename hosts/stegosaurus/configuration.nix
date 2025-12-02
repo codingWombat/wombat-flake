@@ -40,6 +40,22 @@
 
   nixpkgs.config.allowUnfree = true;
 
+  virtualisation.incus.enable = true;
+  networking.nftables.enable = true;
+
+  networking.firewall.interfaces.incusbr0.allowedTCPPorts = [
+    53
+    67
+  ];
+  networking.firewall.interfaces.incusbr0.allowedUDPPorts = [
+    53
+    67
+  ];
+
+  networking.firewall.trustedInterfaces = [ "incusbr0" ];
+
+  users.users.wombatmin.extraGroups = [ "incus-admin" ];
+
   services.openssh = {
     enable = true;
     settings = {
