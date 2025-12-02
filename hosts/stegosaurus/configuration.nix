@@ -8,6 +8,11 @@
   ...
 }:
 {
+  imports = [
+    # Include the results of the hardware scan.
+    /etc/nixos/hardware-configuration.nix
+  ];
+
   # Use the systemd-boot EFI boot loader.
   boot.loader = {
     efi.efiSysMountPoint = "/boot"; # make sure to change this to your EFI partition!
