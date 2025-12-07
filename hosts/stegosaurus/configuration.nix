@@ -35,7 +35,7 @@
 
   environment.systemPackages = with pkgs; [
     intel-gpu-tools
-
+    helix
   ];
 
   nixpkgs.config.allowUnfree = true;
