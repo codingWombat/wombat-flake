@@ -40,7 +40,10 @@
 
   nixpkgs.config.allowUnfree = true;
 
+  virtualisation.incus.package = pkgs.incus;
   virtualisation.incus.enable = true;
+  virtualisation.incus.ui.enable = true;
+
   networking.nftables.enable = true;
 
   networking.hostName = "stegosaurus";
@@ -65,6 +68,10 @@
       PasswordAuthentication = false; # disable password login
     };
     openFirewall = true;
+  };
+
+  environment.sessionVariables = {
+    EDITOR = "hx";
   };
 
   nix.settings = {
