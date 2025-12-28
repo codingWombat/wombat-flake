@@ -46,26 +46,22 @@
   virtualisation.incus.ui.enable = true;
 
   networking.nftables.enable = true;
-
+  networking.bridges.br0.interfaces = [ "enp4s0f0" ];
   networking.hostName = "stegosaurus";
   
   networking.firewall.interfaces.incusbr0.allowedTCPPorts = [
     53
     67
-    8123
-    5900
   ];
   networking.firewall.interfaces.incusbr0.allowedUDPPorts = [
     53
     67
-    8123
-    5900
   ];
 
-  networking.firewall.trustedInterfaces = [ "incusbr0" ];
-
+  networking.firewall.trustedInterfaces = [ "incusbr0" "br0"];
+  networking.firewall.interfaces."br0".allowedTCPPorts = [ 8123 5900];
   networking.firewall.interfaces."enp4s0f0".allowedTCPPorts = [ 5000 8080 ];
-
+  networking.firewall.checkReversePath = "loose";
   users.users.wombatmin.extraGroups = [ "incus-admin" ];
 
   services.openssh = {
