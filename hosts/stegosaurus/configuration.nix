@@ -59,6 +59,8 @@
 
   networking.firewall.trustedInterfaces = [ "incusbr0" ];
 
+  networking.firewall.interfaces."enp4s0f0".allowedTCPPorts = [ 5000 ];
+
   users.users.wombatmin.extraGroups = [ "incus-admin" ];
 
   services.openssh = {
