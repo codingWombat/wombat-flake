@@ -52,10 +52,14 @@
   networking.firewall.interfaces.incusbr0.allowedTCPPorts = [
     53
     67
+    8123
+    5900
   ];
   networking.firewall.interfaces.incusbr0.allowedUDPPorts = [
     53
     67
+    8123
+    5900
   ];
 
   networking.firewall.trustedInterfaces = [ "incusbr0" ];
