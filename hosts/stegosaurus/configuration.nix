@@ -49,6 +49,8 @@
   networking.nftables.enable = true;
   networking.hostName = "stegosaurus";
   networking.firewall.checkReversePath = "loose";
+  networking.firewall.allowedTCPPorts = [ 6789 ];
+
   networking.firewall.interfaces.incusbr0.allowedTCPPorts = [
     53
     67
@@ -71,8 +73,8 @@
     8080
     8123
     5900
-    6789
   ];
+
   users.users.wombatmin.extraGroups = [ "incus-admin" ];
 
   services.openssh = {
