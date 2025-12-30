@@ -82,6 +82,7 @@
     8080
     8123
     5900
+    8096
   ];
 
   users.users.wombatmin.extraGroups = [ "incus-admin" ];
