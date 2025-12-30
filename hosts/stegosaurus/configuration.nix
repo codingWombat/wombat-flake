@@ -41,10 +41,21 @@
   ];
 
   nixpkgs.config.allowUnfree = true;
-
-  virtualisation.incus.package = pkgs.incus;
-  virtualisation.incus.enable = true;
-  virtualisation.incus.ui.enable = true;
+  virtualisation = {
+    incus = {
+      package = pkgs.incus;
+      enable = true;
+      ui.enable = true;
+    };
+    containers = {
+      enable = true;
+      podman = {
+        enable = true;
+        dockerCompat = true;
+        defaultNetwork.settings.dns_enabled = true;
+      };
+    };
+  };
 
   networking.nftables.enable = true;
   networking.hostName = "stegosaurus";
