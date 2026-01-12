@@ -33,6 +33,7 @@
       publicKeys = [
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK5hep9vnJDpydFRLwJhBkwEFSWeA7jLrHAS+liNcasc codingwombat@MacBook-Pro.localdomain"
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIA+wFxNm9hmOYgNkBNH0MU0WBjvY9B1Eff0aYUN4P/t8 workwombat"
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMTeWTwJHESs5Mp3Cb3FNBtfLSSw/9m6XviM5L39Zq2X ansible-generated on wombat-work"
       ];
     in
     {
